@@ -12,27 +12,27 @@ namespace jamesiarmes\PhpEws;
 
 /**
  * Mapping of complex types to class implementations.
- *
+ * @deprecated
  * @package php-ews\ClassMap
  */
 class ClassMap
 {
-    /**
-     * Returns the PHP EWS class map to be used for processing SOAP calls.
-     *
-     * @return string[]
-     *
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
-     */
-    public function getMap()
-    {
-        return array(
+    // Map for {{namespace}} classes.
+    public const MAP = [
           {{#maps}}
             // Map for {{namespace}} classes.
             {{#map}}
-            '{{type}}' => '{{class}}',
+                '{{type}}' => '{{class}}',
             {{/map}}
-          {{/maps}}
-        );
+         {{/maps}}
+    ];
+
+    /**
+     * Returns the PHP EWS class map to be used for processing SOAP calls.
+     * @deprecated
+     */
+    public static function getMap(): array
+    {
+        return static::MAP;
     }
 }

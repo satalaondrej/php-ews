@@ -1611,27 +1611,13 @@ class Client
                 'user' => $this->username,
                 'password' => $this->password,
                 'location' => 'https://' . $this->server . '/EWS/Exchange.asmx',
-                'classmap' => $this->classMap(),
+                'classmap' => ClassMap::MAP,
                 'curlopts' => $this->curl_options,
                 'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
             )
         );
 
         return $this->soap;
-    }
-
-    /**
-     * The class map used to process SOAP requests and responses.
-     *
-     * @return string[]
-     *
-     * @see \jamesiarmes\PhpEws\ClassMap::getMap()
-     */
-    protected function classMap()
-    {
-        $class_map = new ClassMap();
-
-        return $class_map->getMap();
     }
 
     /**
